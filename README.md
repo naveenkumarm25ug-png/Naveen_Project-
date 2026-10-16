@@ -34,4 +34,16 @@ To check the memory leak of the program in the VM using Termide, Refer to the co
 
 `valgrind --leak-check=full ./a.out`
 
+## Screenshots
+*Figure1: output of the collected information*
+![**Output of collecting information**](familytree1.png)
+
+*Figure2: Displayed the collected information*
+![**Displayed the collected information**](familytree2.png)
+
+*Figure3: First half of  leak check*
+![**leak check 1**](valgrind1.png)
+
+*Figure4: Second half of leak check*
+![**leak check 2**](valgrind2.png)
 
