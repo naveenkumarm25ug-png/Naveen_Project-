@@ -41,6 +41,13 @@ void read_person_info(const char *role, char *name_out, int *age_out) {
     printf("\n");
 }
 
+void link_parents(Person *child, Person *father, Person *mother){
+    if (child != NULL){
+        child->father = father;
+        child->mother = mother;
+    }
+}
+
 
 int main() {
     char temp_name[50];
@@ -68,6 +75,10 @@ int main() {
 
     read_person_info("Yourself", temp_name, &temp_age);
     people[6] = create_person(temp_name, temp_age);
+
+    link_parents(people[4], people[0], people[1]);
+    link_parents(people[5], people[2], people[3]);
+    link_parents(people[6], people[4], people[5]);
 
     
     
