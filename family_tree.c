@@ -48,6 +48,45 @@ void link_parents(Person *child, Person *father, Person *mother){
     }
 }
 
+void print_family_relationships(const Person *me)
+{
+    if (me == NULL)
+        return;
+
+    printf("=== FAMILY TREE RELATIONSHIPS ===\n\n");
+
+    
+    printf("1. YOURSELF:\n");
+    printf("   - Name: %s | Age: %d\n\n", me->name, me->age);
+
+   
+    printf("2. PARENTS:\n");
+
+    if (me->father)
+        printf("   - Father: %s | Age: %d\n", me->father->name, me->father->age);
+
+    if (me->mother)
+        printf("   - Mother: %s | Age: %d\n\n",   me->mother->name, me->mother->age);
+
+   
+    printf("3. PATERNAL GRANDPARENTS (via Father's Pointers):\n");
+
+    if (me->father && me->father->father)
+        printf("   - Grandfather: %s | Age: %d\n", me->father->father->name, me->father->father->age);
+
+    if (me->father && me->father->mother)
+        printf("   - Grandmother: %s | Age: %d\n\n", me->father->mother->name, me->father->mother->age);
+
+  
+    printf("4. MATERNAL GRANDPARENTS (via Mother's Pointers):\n");
+
+    if (me->mother && me->mother->father)
+        printf("   - Grandfather: %s | Age: %d\n", me->mother->father->name, me->mother->father->age);
+
+    if (me->mother && me->mother->mother)
+        printf("   - Grandmother: %s | Age: %d\n", me->mother->mother->name, me->mother->mother->age);
+}
+
 
 int main() {
     char temp_name[50];
@@ -80,7 +119,7 @@ int main() {
     link_parents(people[5], people[2], people[3]);
     link_parents(people[6], people[4], people[5]);
 
-    
+    print_family_relationships(people[6]);
     
 
     return 0;
